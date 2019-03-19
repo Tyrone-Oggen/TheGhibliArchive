@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600");
+@import url("https://fonts.googleapis.com/css?family=Hind:300,400");
+
+body {
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+  font-family: "Hind", sans-serif;
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1400px;
+  }
+}
+
+nav a,
+nav span {
+  font-size: 18px;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: #ffffff !important;
+  transition: 0.3s ease;
+}
+
+nav .navbar-brand a {
+  font-weight: 600;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+nav .nav-item {
+  margin-left: 140px;
+}
+
+nav span:hover,
+nav a:hover {
+  cursor: pointer;
+  color: #e7c67c !important;
+  text-decoration: none;
+}
