@@ -30,7 +30,7 @@ class App extends Component {
         <Route path="/about" component={About} />
         <Route path="/films" component={Films} />
         <Route path="/profile" component={Profile} />
-        <Footer />
+        <Footer auth={this.auth} />
       </>
     );
   }
