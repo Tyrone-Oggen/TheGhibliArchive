@@ -7,6 +7,7 @@ import Profile from "./components/Profile";
 import Nav from "./components/Nav";
 import Auth from "./Auth/Auth";
 import Callback from "./Callback";
+import Footer from "./components/Footer";
 
 class App extends Component {
   constructor(props) {
@@ -29,6 +30,7 @@ class App extends Component {
         <Route path="/about" component={About} />
         <Route path="/films" component={Films} />
         <Route path="/profile" component={Profile} />
+        <Footer />
       </>
     );
   }
