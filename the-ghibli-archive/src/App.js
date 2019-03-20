@@ -8,6 +8,7 @@ import Nav from "./components/Nav";
 import Auth from "./Auth/Auth";
 import Callback from "./Auth/Callback";
 import Footer from "./components/Footer";
+import PrivateFilms from "./components/PrivateFilms";
 
 class App extends Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class App extends Component {
   render() {
     return (
       <>
-        <Nav />
+        <Nav auth={this.auth} />
         <Route
           path="/"
           exact
@@ -36,6 +37,16 @@ class App extends Component {
               <Profile auth={this.auth} {...props} />
             ) : (
               <Redirect to="/" />
+            )
+          }
+        />
+        <Route
+          path="/private-films"
+          render={props =>
+            this.auth.isAuthenticated() ? (
+              <PrivateFilms auth={this.auth} {...props} />
+            ) : (
+              this.auth.login()
             )
           }
         />

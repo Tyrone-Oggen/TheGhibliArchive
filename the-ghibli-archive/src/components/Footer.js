@@ -30,7 +30,7 @@ class Footer extends Component {
                     ? require("../images/svg/unlock.svg")
                     : require("../images/svg/lock.svg")
                 }
-                alt={"login"}
+                alt="login"
               />
             </button>
           </div>
