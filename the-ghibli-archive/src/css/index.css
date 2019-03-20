@@ -8,6 +8,12 @@ body {
   font-family: "Hind", sans-serif;
 }
 
+#root {
+  height: 100vh;
+  background-color: #babfc3;
+  background-image: linear-gradient(to bottom right, #babfc3, #555c66);
+}
+
 @media (min-width: 1400px) {
   .container {
     max-width: 1400px;
@@ -45,4 +51,12 @@ nav a:hover {
   width: 100%;
   height: 60px;
   background-color: #babfc3;
+}
+
+.login-icon {
+  display: flex;
+}
+
+.btn.btn-auth {
+  padding: 0 5px 0 0;
 }

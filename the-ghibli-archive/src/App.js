@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import Home from "./components/Home";
 import About from "./components/About";
 import Films from "./components/Films";
 import Profile from "./components/Profile";
 import Nav from "./components/Nav";
 import Auth from "./Auth/Auth";
-import Callback from "./Callback";
+import Callback from "./Auth/Callback";
 import Footer from "./components/Footer";
 
 class App extends Component {
@@ -29,7 +29,16 @@ class App extends Component {
         />
         <Route path="/about" component={About} />
         <Route path="/films" component={Films} />
-        <Route path="/profile" component={Profile} />
+        <Route
+          path="/profile"
+          render={props =>
+            this.auth.isAuthenticated() ? (
+              <Profile auth={this.auth} {...props} />
+            ) : (
+              <Redirect to="/" />
+            )
+          }
+        />
         <Footer auth={this.auth} />
       </>
     );
