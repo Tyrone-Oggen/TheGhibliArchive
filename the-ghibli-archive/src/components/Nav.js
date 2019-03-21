@@ -5,7 +5,7 @@ class Nav extends Component {
   render() {
     const { isAuthenticated } = this.props.auth;
     return (
-      <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-sm navbar-dark bg-none">
         <div className="container">
           <span className="navbar-brand">
             <Link to="/">the ghibli archive</Link>
