@@ -9,6 +9,7 @@ body,
 }
 
 body {
+  min-width: 375px;
   margin: 0;
   padding: 0;
   color: #ffffff;
@@ -43,7 +44,8 @@ nav .navbar-brand a {
 }
 
 nav .nav-item {
-  margin-left: 140px;
+  width: 140px;
+  text-align: right;
 }
 
 a {
@@ -54,6 +56,10 @@ a:hover {
   cursor: pointer;
   color: #e7c67c !important;
   text-decoration: none;
+}
+
+.navbar.navbar-dark .navbar-toggler {
+  color: #fff;
 }
 
 .footer {
@@ -74,6 +80,7 @@ a:hover {
 }
 
 .login-icon {
+  position: relative;
   display: flex;
   right: 15px;
 }
@@ -81,38 +88,25 @@ a:hover {
 .btn.btn-auth {
   padding: 0 5px 0 0;
   position: absolute;
-  right: 0;
-  bottom: 10px;
+  right: -10px;
+  bottom: -15px;
 }
 
 .banner-container {
   position: relative;
   width: 100%;
-  height: 820px;
-  overflow-y: hidden;
+  max-height: 820px;
+  overflow: hidden;
 }
 
-.homepage-banner {
-  height: 100%;
+.banner-container .movie-banner {
+  margin-top: -100px;
+  min-width: 100%;
+  min-height: 500px;
 }
 
-.homepage-banner p.body-content {
-  margin-bottom: 30px;
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0.8),
-    rgba(0, 0, 0, 0.4) 23%,
-    rgba(54, 54, 54, 0.13) 82%,
-    rgba(0, 0, 0, 0.66)
-  );
+.navbar-dark .navbar-toggler {
+  border: none;
 }
 
 @media (min-width: 1400px) {
@@ -208,6 +202,50 @@ a:hover {
 /*Component styling*/
 
 /*Home*/
+.homepage-banner {
+  height: calc(100vh - 60px);
+}
+
+.homepage-banner .background .homepage-banner p.body-content {
+  margin-bottom: 30px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0.4) 23%,
+    rgba(54, 54, 54, 0.13) 82%,
+    rgba(0, 0, 0, 0.66)
+  );
+}
+.banner-container.homepage-banner .background {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.banner-container.homepage-banner .movie-banner {
+  height: 110vh;
+  width: auto;
+}
+
+.banner-container .movie-poster {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 35px;
+  margin: auto;
+}
+
 .info-container {
   z-index: 10;
   position: absolute;
@@ -233,24 +271,6 @@ a:hover {
   width: 100%;
 }
 
-.banner-container .movie-banner {
-  margin-top: -100px;
-  width: 100%;
-}
-
-.banner-container .movie-poster {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 35px;
-  margin: auto;
-}
-
-.banner-container .movie-banner .background {
-  width: 100%;
-  height: 100%;
-}
-
 /*About*/
 .about {
   margin-bottom: 100px;
@@ -258,11 +278,13 @@ a:hover {
 }
 
 /*All films*/
+
 .all-films {
   column-count: 5;
 }
 
 .film-card {
+  display: inline-block;
   width: 205px;
   min-height: 336px;
   margin: 0 auto 30px;
@@ -273,8 +295,8 @@ a:hover {
 }
 .movie-poster img {
   width: 100%;
-  height: 100%;
 }
+
 /*Profile*/
 .profile-container {
   padding-top: 50px;
@@ -291,4 +313,84 @@ a:hover {
 
 .profile-container .user-info {
   margin-top: 50px;
+}
+
+/*Bootstrap based media queries*/
+@media (max-width: 1200px) {
+  .all-films {
+    column-count: 3;
+  }
+}
+
+@media (max-width: 1030px) {
+}
+
+@media (max-width: 992px) {
+}
+
+@media (max-width: 850px) {
+  .banner-container .movie-poster {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .film-card {
+    width: 205px;
+    min-height: 200px;
+  }
+  .movie-poster {
+    width: 160px;
+    height: 220px;
+    margin-bottom: 5px;
+  }
+
+  .navbar-toggler {
+    z-index: 999;
+  }
+
+  .navbar-collapse {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .navbar-collapse .nav-item {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .banner-container.homepage-banner .background {
+    display: none;
+  }
+  .movie-info {
+    display: none;
+  }
+  .banner-container .movie-poster {
+    display: block;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .film-card {
+    width: auto;
+    min-height: 230px;
+  }
+  .movie-poster {
+    width: 120px;
+    height: 170px;
+    margin-bottom: 5px;
+  }
+
+  .container {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
 }

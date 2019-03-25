@@ -51,19 +51,17 @@ class Films extends Component {
             <h1 className="text-center mt-5">All Films</h1>
           </div>
           <div className="all-films container my-5">
-            <div className="d=flex">
-              {this.state.items.slice(0, 5).map(item => (
-                <div key={item.id} className="film-card ">
-                  <div className="movie-poster">
-                    <img
-                      src={require(`../images/Posters/${item.title}.jpg`)}
-                      alt={item.title}
-                    />
-                  </div>
-                  <div> {item.title}</div>
+            {this.state.items.slice(0, 5).map(item => (
+              <div key={item.id} className="film-card ">
+                <div className="movie-poster">
+                  <img
+                    src={require(`../images/Posters/${item.title}.jpg`)}
+                    alt={item.title}
+                  />
                 </div>
-              ))}
-            </div>
+                <div> {item.title}</div>
+              </div>
+            ))}
           </div>
           <div>
             <h5 className="text-center ">

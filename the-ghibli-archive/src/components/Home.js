@@ -76,6 +76,8 @@ class Home extends Component {
               </div>
             </div>
           ))}
+          <h1 className="text-center">Top Films</h1>
+          <p>todo</p>
         </>
       );
     }
